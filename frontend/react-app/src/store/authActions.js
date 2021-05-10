@@ -51,6 +51,14 @@ export const authLogout = () => {
     };
 }
 
+export const authCheckTimeout = expirationTime => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(authLogout());
+        }, expirationTime)
+    }
+}
+
 export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());

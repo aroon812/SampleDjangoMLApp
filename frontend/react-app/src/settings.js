@@ -1,6 +1,6 @@
 let API_SERVER_VAL = '';
 
-switch (ProcessingInstruction.env.NODE_ENV) {
+switch (process.env.NODE_ENV) {
     case 'development':
         API_SERVER_VAL = 'http://localhost:8000';
         break;

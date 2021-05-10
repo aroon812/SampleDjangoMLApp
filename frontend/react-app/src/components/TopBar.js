@@ -19,20 +19,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TopBar() {
+export default function TopBar(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
             Iris Species Predictor
           </Typography>
-          <Button color="inherit">Login</Button>
+          {props.isAuthenticated ? <Button color="inherit" onClick=
+          {()=>props.logout()}>Logout</Button> : null}
         </Toolbar>
       </AppBar>
     </div>
