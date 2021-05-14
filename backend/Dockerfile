@@ -1,3 +1,4 @@
+#builder
 FROM python:3.9-slim as builder
 
 WORKDIR /usr/src/app
@@ -8,6 +9,7 @@ ENV PYTHONUNBUFFERED 1
 COPY ./requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
 
+#final
 FROM python:3.9-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends netcat && \

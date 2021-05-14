@@ -21,6 +21,7 @@ class IRIS_Model_Predict(APIView):
         for key in data:
             keys.append(key)
             values.append(data[key])
+        print(data)
         X = pd.Series(values).to_numpy().reshape(1, -1)
         loaded_mlmodel = PredictionConfig.mlmodel
         y_pred = loaded_mlmodel.predict(X)
